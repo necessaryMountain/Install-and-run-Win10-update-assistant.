@@ -1,4 +1,4 @@
-﻿#Windows upgrade script found on spiceworks.com from user mikehanseman.  Full credit goes to them, though I know there are other similar scripts out there.
+#Windows upgrade script.  This is fairly generic.  Works to upgrade Windows 8.1 to 10 and for Windows 10 machines to get them to the newest feature update.
 
 #defines a directory to store the Windows update Assistant
 $dir = 'C:\temp'
@@ -18,5 +18,5 @@ $file = "$($dir)\Windows10Upgrade9252.exe"
 #downloading the file from that url using the defined path
 $webClient.DownloadFile($url,$file)
 
-#Starting the upgrade assistant
+#Starting the upgrade assistant.  Runs silently and will restart as soon as possible.
 Start-Process -FilePath $file -ArgumentList '/quietinstall /skipeula /auto upgrade /copylogs $dir'
